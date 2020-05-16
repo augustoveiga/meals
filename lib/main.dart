@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'DeliMeals',
+      title: 'Vamos Cozinhar?',
       theme: ThemeData(
         primarySwatch: Colors.pink,
         accentColor: Colors.amber,
@@ -25,9 +25,16 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         //home ou tela inicial
-        AppRoutes.HOME : (_) => CategoriesScreen(),
-        AppRoutes.CATEGORIES_MEALS : (_) => CategoriesMealsScreen(),
-        AppRoutes.MEAL_DETAIL : (_) => MealDeataisScreen(),
+        AppRoutes.HOME: (_) => CategoriesScreen(),
+        AppRoutes.CATEGORIES_MEALS: (_) => CategoriesMealsScreen(),
+        AppRoutes.MEAL_DETAIL: (_) => MealDeataisScreen(),
+      },
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (_) {
+            return CategoriesScreen();
+          },
+        );
       },
     );
   }
